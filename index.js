@@ -41,6 +41,7 @@ const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
 
   } else {
     console.log("you're NOT logged in");
+    alert("NOT LOGGED IN, refresh page, weird bug right now");
   }
 });
 
