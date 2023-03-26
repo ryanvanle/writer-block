@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Writer's Block</title>
+  <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+  <title>Writer's Block</title>
+
+  <!-- Fetch the Firebase and Cloud Firestore Javascript libraries -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script type="text/javascript" src="./handwriting.canvas.js"></script>
+  <script src="words.js"></script>
+  <script type="module" defer>
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.12.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCsmqZ8Y87u9k3xofzcMapRdleSDQQGjPQ",
+      authDomain: "write-racer.firebaseapp.com",
+      databaseURL: "https://write-racer-default-rtdb.firebaseio.com",
+      projectId: "write-racer",
+      storageBucket: "write-racer.appspot.com",
+      messagingSenderId: "630514342479",
+      appId: "1:630514342479:web:188e6829dbecc6fd31683a",
+      measurementId: "G-JZKVP84H60"
+    };
+
+    console.log("hello");
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+
+  <section id="menu" class="flex">
+    <section id="title">
+      <h1>Writer's Block</h1>
+    </section>
+    <section id="menu-buttons">
+      <button>JOIN GAME!</button>
+    </section>
+  </section>
+
+  <section id="queue" class="hidden">
+    <div class="container">
+      <h1>Queuing for a game!</h1>
+      <p>Currently <span id="people-amount">1</span><span> </span>out of 4</p>
+    </div>
+  </section>
+
+  <section id="game" class="hidden">
+    <div class="timer" id="timer">0</div>
+    <div class="container">
+      <div class="quote-display" id="quote_display">quote</div>
+    </div>
+    <div class="container" id="progress-bars">
+      <!-- <div>
+        <p>P1</p>
+        <progress value="0" max="100"></progress>
+      </div>
+      <div>
+        <p>P2</p>
+        <progress value="0" max="100"></progress>
+      </div>
+      <div>
+        <p>P3</p>
+        <progress value="70" max="100"></progress>
+      </div>
+      <div>
+        <p>P4</p>
+        <progress value="50" max="100"></progress>
+      </div> -->
+
+
+    </div>
+    <div class="container" id="user-area">
+      <section id="input-result"><p></p></section>
+      <section id="canvas-section"></section>
+      <section id="user-button"></section>
+    </div>
+  </section>
+  <section id="lost" class="hidden">
+    <div class="container">
+      <h1>You Lost!</h1>
+      <button id="lost-button">Return to Main Menu</button>
+    </div>
+  </section>
+  <section id="won" class="hidden">
+    <div class="container">
+      <h1>You Won!</h1>
+      <button id="won-button">Return to Main Menu</button>
+    </div>
+  </section>
+
+</body>
+</html>
