@@ -5,6 +5,8 @@ const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
 (function() {
   const quoteDisplayElement = id('quote_display');
   const timerElement = id('timer');
+  const LOWER_BOUND_RANDOM_INT = 10;
+  const HIGHER_BOUND_RANDOM_INT = 16;
 
   // Game state variables
   let arrayQuote = [];
@@ -415,15 +417,12 @@ const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
     // words.js to different languages
 
     let quote = "";
-    let wordAmount = getRandomIntBetween(10, 16);
+    let wordAmount = getRandomIntBetween(LOWER_BOUND_RANDOM_INT, HIGHER_BOUND_RANDOM_INT);
 
     for (let i = 0; i < wordAmount; i++) {
       let currentWord = words[getRandomIndex(words)].toLowerCase();
-
       quote += currentWord;
-      if (i + 1 != wordAmount) {
-        quote += " ";
-      }
+      if (i + 1 != wordAmount) quote += " ";
     }
 
     return quote;
