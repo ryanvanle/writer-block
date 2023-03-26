@@ -31,13 +31,10 @@ const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
     if (user) {
       console.log("you're logged in");
       playerId = user.uid;
-
-
       // let gameRef = firebase.database().ref(`Games/1`);
       // gameRef.set({
       //   game: "no"
       // })
-
     } else {
       console.log("you're NOT logged in");
     }
@@ -131,7 +128,6 @@ const RANDOM_QUOTE_API_URL = "http://api.quotable.io/random";
     renderNewQuote(gameJSON.words);
     generateCanvas();
     startTimer();
-
 
     let gameRef = firebase.database().ref(`Game/1`);
     gameRef.on("value", (snap) => {
